@@ -1,0 +1,47 @@
+#!/usr/bin/python3
+import sys
+
+"""
+File_name: rsa
+Created: 28th of May, 2023
+Auth: David James Taiye (Official0mega)
+Size: undefined
+Project: RSA-Factoring-Challenge
+Status: submitted.
+"""
+
+
+def factorization():
+
+    """
+    # RSA Laboratories states that: for each RSA number n
+    # ...there exist prime numbers p and q such that
+    # n = p × q. The problem is to find these two primes, given only n.
+    # VARIABLE(" "):
+    # factorize(int) Factorize all the things!
+    # This task is the same as task 0, except:
+    # .....p and q are always prime numbers
+    # .....There is only one number in the files
+    # .....How far can you go in less than 5 second? 🤔🤔🤔
+    """
+    try:
+        files = sys.argv[1]
+        with open(files) as f:
+            for numbs in f:
+                numbs = int(numbs)
+                if numbs % 2 == 0:
+                    print("{}={}*{}".format(numbs, numbs // 2, 2))
+                    continue
+                run = 3
+                while run < numbs // 2:
+                    if numbs % run == 0:
+                        print("{}={}*{}".format(numbs, numbs // run, run))
+                        break
+                    run = run + 2
+                if run == (numbs // 2) + 1:
+                    print("{}={}*{}".format(numbs, numbs, 1))
+    except (IndexError):
+        pass
+
+
+factorization()
